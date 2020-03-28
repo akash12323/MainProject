@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorgray"
+    tools:context=".Main8Activity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        >
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgView"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/cirImgiew"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="185dp"
+                android:layout_marginStart="20dp"
+                app:civ_border_width="2dp"
+                android:src="@mipmap/ic_launcher"
+                />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_below="@id/frame"
+            android:text="NAME"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:textSize="25sp"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv3"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:text="KNOWN FOR: "
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_below="@id/tv1"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp"
+            android:textStyle="italic|bold"/>
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv2"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="5dp"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            />
+        <ImageView
+            android:id="@+id/imgView1"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:layout_below="@id/tv4"
+            android:src="@mipmap/ic_launcher"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/imgView2"
+            android:layout_below="@id/imgView1"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            tools:ignore="MissingConstraints" />
+    </RelativeLayout>
+
+</ScrollView>

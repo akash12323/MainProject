@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Movies Forum</string>
+    <string name="open">OPEN DRAWER</string>
+    <string name="close">CLOSE DRAWER</string>
+</resources>

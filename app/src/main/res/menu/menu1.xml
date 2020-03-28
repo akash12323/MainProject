@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="        Movies"
+        android:id="@+id/movies"
+        android:icon="@drawable/ic_movie"/>
+    <item
+        android:title="        TV Series"
+        android:id="@+id/tv_series"
+        android:icon="@drawable/ic_tv"
+        />
+    <item
+        android:title="        Discover"
+        android:id="@+id/discover"
+        android:icon="@drawable/ic_discover"/>
+    <item
+        android:title="        People"
+        android:id="@+id/people"
+        android:icon="@drawable/ic_people" />
+
+    <group android:id="@+id/wishListGroup"
+        >
+        <item
+            android:title="        Wishlist Tv"
+            android:id="@+id/wishlist"
+            android:icon="@drawable/ic_tv" />
+        <item
+            android:title="        Wishlist Movie"
+            android:id="@+id/wishlistMovie"
+            android:icon="@drawable/ic_tv" />
+    </group>
+
+</menu>
