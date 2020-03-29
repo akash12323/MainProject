@@ -156,7 +156,7 @@ class WishlistMovie : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu2,menu)
+        menuInflater.inflate(R.menu.menu3,menu)
 
         val item = menu?.findItem(R.id.search)
         val searchView = item?.actionView as SearchView

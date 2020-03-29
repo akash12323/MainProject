@@ -7,48 +7,27 @@
     android:background="@color/colorAcc"
     tools:context=".MainActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/see"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:boxCornerRadiusTopStart="15dp"
-        app:boxCornerRadiusTopEnd="15dp"
-        app:boxCornerRadiusBottomStart="15dp"
-        app:boxCornerRadiusBottomEnd="15dp"
-        android:layout_margin="16dp"
-        app:boxStrokeColor="@android:color/holo_orange_dark">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        tools:ignore="MissingConstraints">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
-            android:drawablePadding="8dp"
-            android:background="@android:color/background_light"
-            android:drawableEnd="@drawable/ic_search"
-            android:drawableTint="@android:color/holo_orange_light"
-            android:clickable="true"
-            android:focusable="true"
-            android:textColor="@android:color/background_dark"
-            android:id="@+id/sea"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sbtn"
-        android:text="search"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:layout_below="@id/see"
-        android:layout_marginStart="20dp"
-        />
+            android:background="@color/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="Movie Time" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ParentRView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/sbtn"
+        android:layout_below="@id/appBarLayout"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:itemCount="5"

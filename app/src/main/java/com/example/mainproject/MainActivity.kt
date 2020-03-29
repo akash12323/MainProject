@@ -221,44 +221,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu2, menu)
-
-        val item = menu?.findItem(R.id.search)
-        val searchView = item?.actionView as SearchView
-        searchView.setQueryHint("type here to search")
+        menuInflater.inflate(R.menu.menu2,menu)
 
         return super.onCreateOptionsMenu(menu)
     }
-
-//        item.setOnActionExpandListener(object : MenuItem.OnActionExpandListener{
-//            override fun onMenuItemActionExpand(p0: MenuItem?): Boolean {
-//                displayTodo()
-//                return true
-//            }
-//
-//            override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
-//                displayTodo()
-//                return true
-//            }
-//        })
-//
-//        searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                if(!newText.isNullOrEmpty()){
-//                    displayTodo(newText)
-//                }
-//                return true
-//            }
-//
-//        })
-//
-//    fun displayTodo(newText:String = ""){
-//
-//    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
@@ -267,7 +233,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             Toast.makeText(this,"search clicked",Toast.LENGTH_SHORT).show()
             startActivity(Intent(this,SearchActivity::class.java))
         }
-
         return true
     }
 

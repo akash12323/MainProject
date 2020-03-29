@@ -19,6 +19,7 @@ import com.example.mainproject.model.modelmovies.similarmovies.SimilarMoviesResp
 import com.example.mainproject.model.multisearch.SearchResponse
 import com.example.mainproject.model.trailers.movietrailers.TrailerResponse
 import com.example.mainproject.model.trailers.tvtrailers.TvTrailerResponse
+import com.example.mainproject.model.trending.AllTrendingResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -92,6 +93,9 @@ interface Movie {
     @GET("search/multi?api_key=3b64ac412725369ae963817a7514e443&language=en-US")
     suspend fun getMultiSeach(@Query("query")query:String,
                               @Query("page")page:String):Response<SearchResponse>
+
+    @GET("trending/all/day?api_key=3b64ac412725369ae963817a7514e443")
+    suspend fun getTrendings():Response<AllTrendingResponse>
 }
 
 //https://api.themoviedb.org/3/movie/19404/videos?api_key=3b64ac412725369ae963817a7514e443&language=en-US
