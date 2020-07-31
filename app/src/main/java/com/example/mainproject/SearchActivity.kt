@@ -72,7 +72,7 @@ class SearchActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         }
 
         GlobalScope.launch {
-            val response = withContext(Dispatchers.IO){ MovieClient.api.getTrendings() }
+            val response = withContext(Dispatchers.IO){ MovieClient.api.getTrendings("all") }
 
             if (response.isSuccessful){
                 response.body()?.let {res->
@@ -199,7 +199,7 @@ class SearchActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 }
             }
             GlobalScope.launch {
-                val response = withContext(Dispatchers.IO){ MovieClient.api.getTrendings() }
+                val response = withContext(Dispatchers.IO){ MovieClient.api.getTrendings("all") }
 
                 if (response.isSuccessful){
                     response.body()?.let {res->
@@ -221,41 +221,3 @@ class SearchActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         return true
     }
 }
-
-
-//<com.google.android.material.textfield.TextInputLayout
-//android:layout_width="match_parent"
-//android:layout_height="wrap_content"
-//android:id="@+id/see"
-//style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-//app:boxCornerRadiusTopStart="15dp"
-//app:boxCornerRadiusTopEnd="15dp"
-//app:boxCornerRadiusBottomStart="15dp"
-//app:boxCornerRadiusBottomEnd="15dp"
-//android:layout_margin="16dp"
-//app:boxStrokeColor="@android:color/holo_orange_dark">
-//
-//<com.google.android.material.textfield.TextInputEditText
-//android:layout_width="match_parent"
-//android:layout_height="wrap_content"
-//android:cursorVisible="true"
-//android:drawablePadding="8dp"
-//android:background="@android:color/background_light"
-//android:drawableEnd="@drawable/ic_search"
-//android:drawableTint="@android:color/holo_orange_light"
-//android:clickable="true"
-//android:focusable="true"
-//android:textColor="@android:color/background_dark"
-//android:id="@+id/sea"/>
-//
-//</com.google.android.material.textfield.TextInputLayout>
-//
-//<Button
-//android:layout_width="wrap_content"
-//android:layout_height="wrap_content"
-//android:id="@+id/sbtn"
-//android:text="search"
-//android:backgroundTint="@android:color/holo_orange_dark"
-//android:layout_below="@id/see"
-//android:layout_marginStart="20dp"
-///>

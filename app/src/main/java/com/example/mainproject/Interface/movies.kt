@@ -27,16 +27,16 @@ interface Movie {
     //MOVIE
     @GET("movie/top_rated?")
     suspend fun getAllTopRatedMovie(@Query("page")page:String,
-                                    @Query("key")key:String ) :Response<TopRatedResponse>
+                                    @Query("api_key")api_key:String) :Response<TopRatedResponse>
 
     @GET("movie/now_playing?")
     suspend fun getAllRecentMovies(@Query("page")page:String,
                                    @Query("year")year:String,
-                                   @Query("key")key:String):Response<NowPlayingResponse>
+                                   @Query("api_key")api_key:String):Response<NowPlayingResponse>
 
     @GET("movie/popular?")
     suspend fun getAllPopularMovie(@Query("page")page:String,
-                                    @Query("key")key:String ) :Response<PopularResponse>
+                                    @Query("api_key")api_key:String ) :Response<PopularResponse>
 
     @GET("movie/upcoming?api_key=3b64ac412725369ae963817a7514e443")
     suspend fun getAllUpcomingMovies(@Query("date")date:String,
@@ -101,8 +101,8 @@ interface Movie {
 
 
     //TRENDING
-    @GET("trending/all/day?api_key=3b64ac412725369ae963817a7514e443")
-    suspend fun getTrendings():Response<AllTrendingResponse>
+    @GET("trending/{media_type}/day?api_key=3b64ac412725369ae963817a7514e443")
+    suspend fun getTrendings(@Path("media_type")media_type:String):Response<AllTrendingResponse>
 
 
     //SEARCH

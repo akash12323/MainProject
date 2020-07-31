@@ -1,5 +1,6 @@
 package com.example.mainproject
 
+import ViewPagerAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,7 @@ import com.example.mainproject.adapter.movieadapter.ParentAdapterMovies
 import com.example.mainproject.adapter.movieadapter.TopRatedChildAdapter
 import com.example.mainproject.model.modelmovies.*
 import com.example.mainproject.model.multisearch.ResultsSearch
+import com.example.mainproject.model.trending.TrendingResultsItem
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_include.*
@@ -110,6 +112,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     )
                 )
             }
+        }
+
+        val trendingList = arrayListOf<TrendingResultsItem>()
+        val trendingAdapter = ViewPagerAdapter(trendingList)
+
+        GlobalScope.launch {
+            val response = withContext(Dispatchers.IO){ MovieClient.api.getTrendings("movie") }
+            if (response.isSuccessful){
+                response.body()?.let { res->
+                    res.results?.let { trendingList.addAll(it) }
+                }
+                runOnUiThread{
+                    trendingAdapter.notifyDataSetChanged()
+                    trendingVp.adapter = trendingAdapter
+                }
+            }
+        }
+        trendingAdapter.onItemClick = {
+            val i = Intent(this,Main6Activity::class.java)
+            i.putExtra("id",it.id.toString())
+
+            startActivity(i)
         }
 
         ParentRView.apply {

@@ -1,5 +1,6 @@
 package com.example.mainproject
 
+import ViewPagerAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,7 @@ import com.example.mainproject.model.model_tv.ParentTv
 import com.example.mainproject.model.model_tv.TvOnAir
 import com.example.mainproject.model.model_tv.TvPopular
 import com.example.mainproject.model.model_tv.TvTopRated
+import com.example.mainproject.model.trending.TrendingResultsItem
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_include.*
@@ -91,6 +93,32 @@ class Main3Activity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
                 )
             }
         }
+
+        val trendingList = arrayListOf<TrendingResultsItem>()
+        val trendingAdapter = ViewPagerAdapter(trendingList)
+
+        GlobalScope.launch {
+            val response = withContext(Dispatchers.IO){ MovieClient.api.getTrendings("tv") }
+            if (response.isSuccessful){
+                response.body()?.let { res->
+                    res.results?.let { trendingList.addAll(it) }
+                }
+                runOnUiThread{
+                    trendingAdapter.notifyDataSetChanged()
+                    trendingVp.adapter = trendingAdapter
+                }
+            }
+        }
+
+        trendingAdapter.onItemClick = {
+            val i = Intent(this,Main7Activity::class.java)
+            i.putExtra("id",it.id.toString())
+
+            startActivity(i)
+        }
+
+
+
 
         ParentRView.apply {
             layoutManager = LinearLayoutManager(this@Main3Activity, RecyclerView.VERTICAL,false)
